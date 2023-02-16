@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>replit</title>
+  <link href="style.css" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+  <section class="clock">
+    <div class="container">
+      <div class="left">
+        <h1 class="textBig" id="time"></h1>
+      </div>
+      <div class="right">
+        <div id="dayContainer">
+          <span class="textSmall" id="indicator"></span>
+          <span class="textSmall" id="dash">-</span>
+          <span class="textSmall" id="day"></span>
+        </div>
+        <span class="textMed" id="date">s</span>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    setInterval(function () {
+      let a = new Date()
+      let h = a.getHours()
+      let m = a.getMinutes()
+      let s = a.getSeconds()
+      let d = a.getDate()
+      let day = a.getDay()
+      let month = a.getMonth() + 1
+      let year = a.getFullYear()
+      let ampm = "AM"
+      if (h >= 12) {
+        ampm = "PM"
+        h = h - 12
+      }
+      if (h == 0) {
+        h = 12
+      }
+      document.getElementById("date").innerHTML = d + "-" + month + "-" + year;
+      document.getElementById("time").innerHTML = h + " : " + m + " : " + s;
+      document.getElementById("indicator").innerHTML = ampm;
+
+      const weekday = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+      document.getElementById("day").innerHTML = weekday[day];
+
+    }, 2)
+
+  </script>
+  <script src="https://replit.com/public/js/replit-badge.js" theme="blue" defer></script>
+</body>
+
+</html>
